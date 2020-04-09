@@ -2,4 +2,6 @@
 
 The IRIS Translation System was developed to translate text from English into Irish and vice versa.
 
-![Image description](iris_gui.png)
+The Demo can be accessed @ http://server1.nlp.insight-centre.org/iris/
+
+![# IRIS - Translation System](iris_gui.png)
