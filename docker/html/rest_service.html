@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>IRIS | English-Irish Transaltion System</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="iris.css" />
+
+		<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-60372736-1', 'auto');
+		  ga('send', 'pageview');
+		</script>
+	</head>
+	<body>
+		<header>
+		
+			<div class="container">
+				
+				<div class="alighleft">
+					<span class="logo"><span class="green">IRIS</span></span>
+					English-Irish Translation System
+				</div>
+
+				<ul class="alighright">
+					<li><a href="./"><i class="fa fa-home"></i> Home</a></li>
+					<li><a href="./inneacs.html">☘ Irish</a></li>
+					<li><a href="./about.html"><i class="fa fa-comment"></i> About</a></li>					
+					<li><a href="./team.html"><i class="fa fa-users"></i> Team</a></li>
+					<li><a href="./rest_service.html"><i class="fa fa-cogs"></i> API</a></li>
+					<li><a href="./txt_upload.html"><i class="fa fa-file-code-o"></i> TXT Upload</a></li>
+					<li>
+						<a href="#"><i class="fa fa-tags"></i> Other Projects </a>
+						<ul>
+							<li><a href="../iris" target="_top">IRIS</a></li>
+							<li><a href="../otto" target="_top">OTTO</a></li>
+							<li><a href="../asistent" target="_top">ASISTENT</a></li>
+							<li><a href="../tetra" target="_top">TeTra</a></li>
+						</ul>
+					</li>
+				</ul>
+				<div class="clear"></div>
+				
+			</div>
+
+		</header>
+		
+		<div class="container">
+			<div class="contentsfull">
+
+<br>
+<p class="big" style="text-align:justify">The IRIS  RESTful service enables the access of the translation system with other applications. For any questions, contact <a href="mailto:mihael.arcan@insight-centre.org?cc=paul.buitelaar@insight-centre.org">Mihael Arcan</a>, PhD Student at <a href="http://nuig.insight-centre.org/unlp/" target="_blank">Unit for Natural Language Processing</a> (UNLP), Insight @ NUI Galway.</p>
+<br>
+<p><b>Example:</b> Translating English text into Irish within java/python/perl code: </p>
+<ul>
+
+<p>
+<br>
+<b>JSON INPUT</b>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">{
+   <span style="color: #007700">&quot;text&quot;</span>:<span style="background-color: #fff0f0">&quot;Ireland will use no fossil fuels by the end of the century, according to a new Government energy policy paper.&quot;</span>,
+   <span style="color: #007700">&quot;translation_direction&quot;</span>:<span style="background-color: #fff0f0">&quot;en_ga&quot;</span>,
+   <span style="color: #007700">&quot;nbest&quot;</span>:<span style="color: #0000DD; font-weight: bold">10</span>
+}
+</pre></div>
+
+<br>
+<p><b>JAVA EXAMPLE:</b></p>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.io.BufferedReader</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.io.IOException</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.io.InputStreamReader</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.net.MalformedURLException</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.net.URL</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.net.URLConnection</span><span style="color: #333333">;</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.net.URLEncoder</span><span style="color: #333333">;</span>
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">RestApiExample</span> <span style="color: #333333">{</span>
+	<span style="color: #008800; font-weight: bold">static</span> String endpoint <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;http://server1.nlp.insight-centre.org/cgi-bin/iris_restAPI.cgi?json=&quot;</span><span style="color: #333333">;</span>
+	<span style="color: #555555; font-weight: bold">@SuppressWarnings</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;deprecation&quot;</span><span style="color: #333333">)</span>
+	<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> String <span style="color: #0066BB; font-weight: bold">callApi</span><span style="color: #333333">(){</span>
+		String extractText <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;{\&quot;text\&quot;:\&quot;Ireland will use no fossil fuels by the end of the century, according to a new Government energy policy paper.\&quot;,\&quot;translation_direction\&quot;:\&quot;en_ga\&quot;,\&quot;nbest\&quot;:10}&quot;</span><span style="color: #333333">;</span>
+		extractText <span style="color: #333333">=</span> URLEncoder<span style="color: #333333">.</span><span style="color: #0000CC">encode</span><span style="color: #333333">(</span>extractText<span style="color: #333333">).</span><span style="color: #0000CC">replace</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;+&quot;</span><span style="color: #333333">,</span> <span style="background-color: #fff0f0">&quot;%20&quot;</span><span style="color: #333333">);</span>
+		String query <span style="color: #333333">=</span> endpoint <span style="color: #333333">+</span> extractText<span style="color: #333333">;</span>
+		StringBuffer buffer <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> StringBuffer<span style="color: #333333">();</span>
+		<span style="color: #008800; font-weight: bold">try</span> <span style="color: #333333">{</span>
+			URL url <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> URL<span style="color: #333333">(</span>query<span style="color: #333333">);</span>
+			URLConnection connection <span style="color: #333333">=</span> url<span style="color: #333333">.</span><span style="color: #0000CC">openConnection</span><span style="color: #333333">();</span>
+			BufferedReader reader <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> BufferedReader<span style="color: #333333">(</span><span style="color: #008800; font-weight: bold">new</span> InputStreamReader<span style="color: #333333">(</span>connection<span style="color: #333333">.</span><span style="color: #0000CC">getInputStream</span><span style="color: #333333">()));</span>			
+			String inputLine <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">;</span>
+			<span style="color: #008800; font-weight: bold">while</span> <span style="color: #333333">((</span>inputLine <span style="color: #333333">=</span> reader<span style="color: #333333">.</span><span style="color: #0000CC">readLine</span><span style="color: #333333">())</span> <span style="color: #333333">!=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">){</span> 
+				buffer<span style="color: #333333">.</span><span style="color: #0000CC">append</span><span style="color: #333333">(</span>inputLine<span style="color: #333333">);</span>
+			<span style="color: #333333">}</span>
+			reader<span style="color: #333333">.</span><span style="color: #0000CC">close</span><span style="color: #333333">();</span>			
+		<span style="color: #333333">}</span> <span style="color: #008800; font-weight: bold">catch</span> <span style="color: #333333">(</span>MalformedURLException e<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+			e<span style="color: #333333">.</span><span style="color: #0000CC">printStackTrace</span><span style="color: #333333">();</span>
+		<span style="color: #333333">}</span> <span style="color: #008800; font-weight: bold">catch</span> <span style="color: #333333">(</span>IOException e<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+			e<span style="color: #333333">.</span><span style="color: #0000CC">printStackTrace</span><span style="color: #333333">();</span>
+		<span style="color: #333333">}</span>
+		<span style="color: #008800; font-weight: bold">return</span> buffer<span style="color: #333333">.</span><span style="color: #0000CC">toString</span><span style="color: #333333">();</span>
+	<span style="color: #333333">}</span>
+	<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+		String outJson <span style="color: #333333">=</span> callApi<span style="color: #333333">();</span>		
+		System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>outJson<span style="color: #333333">);</span>
+	<span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>
+
+
+
+<br>
+<p><b>PYTHON EXAMPLE:</b></p>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">urllib</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">requests</span>
+
+jsonRequest <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;{&quot;Ireland will use no fossil fuels by the end of the century, according to a new Government energy policy paper.&quot;</span>,<span style="background-color: #fff0f0">&quot;translation_direction&quot;}]}&#39;</span>
+url <span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;http://server1.nlp.insight-centre.org/cgi-bin/iris_restAPI.cgi?json=&quot;</span>
+data <span style="color: #333333">=</span>urllib<span style="color: #333333">.</span>quote(jsonRequest)
+r <span style="color: #333333">=</span> requests<span style="color: #333333">.</span>get(url<span style="color: #333333">+</span>data)
+translations <span style="color: #333333">=</span> r<span style="color: #333333">.</span>json()
+<span style="color: #008800; font-weight: bold">print</span>( translations ) 
+</pre></div>
+<br>
+<p><b>PERL EXAMPLE</b>
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">use</span> <span style="color: #0e84b5; font-weight: bold">LWP::</span>Simple;
+<span style="color: #008800; font-weight: bold">use</span> JSON;
+<span style="color: #008800; font-weight: bold">my</span> <span style="color: #996633">$json</span> <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;{&quot;text&quot;:&quot;Ireland will use no fossil fuels by the end of the century, according to a new Government energy policy paper.&quot;,&quot;translation_direction&quot;:&quot;en_ga&quot;,&quot;nbest&quot;:10}&#39;</span>;
+<span style="color: #008800; font-weight: bold">my</span> <span style="color: #996633">$translations</span> <span style="color: #333333">=</span> get <span style="background-color: #fff0f0">&quot;http://server1.nlp.insight-centre.org/cgi-bin/iris_restAPI.cgi?json=$json&quot;</span>;
+</pre></div>
+
+<br>
+<b>JSON OUTPUT</b>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">{
+   <span style="color: #007700">&quot;source&quot;</span>:<span style="background-color: #fff0f0">&quot;Ireland will use no fossil fuels by the end of the century, according to a new Government energy policy paper.&quot;</span>,
+   <span style="color: #007700">&quot;time&quot;</span>:<span style="background-color: #fff0f0">&quot; 2 wallclock secs ( 0.02 usr  0.00 sys +  1.77 cusr  0.13 csys =  1.92 CPU)&quot;</span>,
+   <span style="color: #007700">&quot;text&quot;</span>:<span style="background-color: #fff0f0">&quot;Ireland will use no fossil fuels by the end of the century, according to a new Government energy policy paper.&quot;</span>,
+   <span style="color: #007700">&quot;translation_direction&quot;</span>:<span style="background-color: #fff0f0">&quot;en_ga&quot;</span>,
+   <span style="color: #007700">&quot;n_best&quot;</span>:{
+      <span style="color: #007700">&quot;Ní úsáidfidh sé gur breoslaí iontaise in Éirinn faoi dheireadh an chéid nua , de réir bheartas fuinnimh an Rialtais . &quot;</span>:<span style="background-color: #fff0f0">&quot;-16.0954&quot;</span>,
+      <span style="color: #007700">&quot;Ní úsáidfidh breoslaí iontaise in Éirinn faoi dheireadh na haoise nua , de réir bheartas fuinnimh an Rialtais . &quot;</span>:<span style="background-color: #fff0f0">&quot;-16.2009&quot;</span>,
+      <span style="color: #007700">&quot;gan aon úsáid a bhaint as breoslaí iontaise in Éirinn faoi dheireadh an chéid nua , de réir bheartas fuinnimh an Rialtais . &quot;</span>:<span style="background-color: #fff0f0">&quot;-16.11&quot;</span>,
+      <span style="color: #007700">&quot;gan aon úsáid a bhaint as breoslaí iontaise in Éirinn faoi dheireadh na haoise nua , de réir bheartas fuinnimh an Rialtais . &quot;</span>:<span style="background-color: #fff0f0">&quot;-16.2687&quot;</span>,
+      <span style="color: #007700">&quot;Ní úsáidfidh breoslaí iontaise in Éirinn faoi dheireadh an chéid nua , de réir bheartas fuinnimh an Rialtais . &quot;</span>:<span style="background-color: #fff0f0">&quot;-16.0423&quot;</span>,
+      <span style="color: #007700">&quot;Ní úsáidfear breoslaí iontaise in Éirinn faoi dheireadh na haoise nua , de réir bheartas fuinnimh an Rialtais . &quot;</span>:<span style="background-color: #fff0f0">&quot;-16.3136&quot;</span>,
+      <span style="color: #007700">&quot;Úsáid breoslaí iontaise in Éirinn ar bith faoi dheireadh an chéid nua , de réir bheartas fuinnimh an Rialtais . &quot;</span>:<span style="background-color: #fff0f0">&quot;-16.2788&quot;</span>,
+      <span style="color: #007700">&quot;Ní úsáidfear breoslaí iontaise in Éirinn faoi dheireadh an chéid nua , de réir bheartas fuinnimh an Rialtais . &quot;</span>:<span style="background-color: #fff0f0">&quot;-16.155&quot;</span>,
+      <span style="color: #007700">&quot;Ní úsáidfidh sé gur breoslaí iontaise in Éirinn faoi dheireadh na haoise nua , de réir bheartas fuinnimh an Rialtais . &quot;</span>:<span style="background-color: #fff0f0">&quot;-16.254&quot;</span>,
+      <span style="color: #007700">&quot;Níl aon úsáid a bhaint as breoslaí iontaise in Éirinn faoi dheireadh an chéid nua , de réir bheartas fuinnimh an Rialtais . &quot;</span>:<span style="background-color: #fff0f0">&quot;-16.1724&quot;</span>
+   },
+   <span style="color: #007700">&quot;nbest&quot;</span>:<span style="background-color: #fff0f0">&quot;10&quot;</span>,
+   <span style="color: #007700">&quot;best_translation&quot;</span>:<span style="background-color: #fff0f0">&quot;Ní úsáidfidh breoslaí iontaise in Éirinn faoi dheireadh an chéid nua, de réir bheartas fuinnimh an Rialtais.&quot;</span>
+}
+</pre></div>
+
+
+</ul>
+
+
+			</div>
+		</div>
+
+		<footer>
+			<div class="container">
+				<a href="http://www.insight-centre.org/" target="_blank"><img src="insight_logo_transparent.png" /></a>
+
+				<a href="http://www.nuigalway.ie/index.html" target="_blank"><img src="nuigalway.png" /></a>
+				<a href="http://www.sfi.ie/" target="_blank"><img src="sfi.png" /></a>
+
+				<br />
+				<span style="font-size: smaller;">This resource has been funded by Grant No. SFI/12/RC/2289 - INSIGHT - National University of Ireland, Galway</span>
+
+				<br />
+			</div>
+		</footer>
+		<br clear="all" /><br />
+	</body>
+</html>

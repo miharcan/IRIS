@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta name="generator" content="Bluefish 2.2.5" >
+<meta name="author" content="Mihael" >
+<meta name="date" content="2015-04-16T15:25:42+0100" >
+<meta name="copyright" content="">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
+<meta http-equiv="content-style-type" content="text/css">
+<meta http-equiv="expires" content="0">
+</head>
+<body>
+
+<div style="text-align: center"><p><h3>REST Service - <a href="http://server1.nlp.insight-centre.org/iris/" target="_blank">IRIS - English-Irish Translation System</a></h3></p></div>
+
+
+<br>
+<p class="big" style="text-align:justify">The IRIS  RESTful service enables the access of the translation system with other applications. For any questions, contact <a href="mailto:mihael.arcan@insight-centre.org?cc=paul.buitelaar@insight-centre.org">Mihael Arcan</a>, PhD Student at <a href="http://nlp.insight-centre.org/" target="_blank">Unit for Natural Language Processing</a> (UNLP), Insight @ NUI Galway.</p>
+
+<p><b>Example:</b></p>
+<ul>
+<p> Translating English text into Irish within PERL code: </p>
+
+<p>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">#!/usr/bin/perl</span>
+<span style="color: #008800; font-weight: bold">use</span> strict;
+<span style="color: #008800; font-weight: bold">use</span> warnings;
+<span style="color: #008800; font-weight: bold">use</span> <span style="color: #0e84b5; font-weight: bold">Data::</span>Dumper;
+<span style="color: #996633">$</span><span style="color: #0e84b5; font-weight: bold">Data::Dumper::</span><span style="color: #996633">Useperl</span> <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+
+<span style="color: #888888">####</span>
+<span style="color: #888888">#Number of possible translations</span>
+<span style="color: #888888">####</span>
+<span style="color: #008800; font-weight: bold">my</span> <span style="color: #996633">$nbest</span> <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>;
+
+<span style="color: #888888">####</span>
+<span style="color: #888888">#Translation direction</span>
+<span style="color: #888888">#English to Irish: en_ga</span>
+<span style="color: #888888">#Irish to English: ga_en</span>
+<span style="color: #888888">####</span>
+<span style="color: #008800; font-weight: bold">my</span> <span style="color: #996633">$lang_pair</span> <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;en_ga&quot;</span>;
+
+<span style="color: #888888">####</span>
+<span style="color: #888888">#Text to be translated</span>
+<span style="color: #888888">####</span>
+<span style="color: #008800; font-weight: bold">my</span> <span style="color: #996633">$string</span> <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;Ireland will use no fossil fuels by the end of the century, according to a new Government energy policy paper.&quot;</span>;
+
+<span style="color: #888888">####</span>
+<span style="color: #888888">#API request</span>
+<span style="color: #888888">####</span>
+<span style="color: #008800; font-weight: bold">my</span> <span style="color: #996633">$translations</span> <span style="color: #333333">=</span> get <span style="background-color: #fff0f0">&#39;http://server1.nlp.insight-centre.org/cgi-bin/iris_restAPI.cgi?pair=&#39;</span><span style="color: #333333">.</span><span style="color: #996633">$lang_pair</span><span style="color: #333333">.</span><span style="background-color: #fff0f0">&#39;&amp;nbest=&#39;</span><span style="color: #333333">.</span><span style="color: #996633">$nbest</span><span style="color: #333333">.</span><span style="background-color: #fff0f0">&#39;&amp;source=&quot;&#39;</span><span style="color: #333333">.</span><span style="color: #996633">$string</span><span style="color: #333333">.</span><span style="background-color: #fff0f0">&#39;&quot;&#39;</span>;
+
+<span style="color: #888888">####</span>
+<span style="color: #888888">#JSON into hash table transformation</span>
+<span style="color: #888888">####</span>
+<span style="color: #008800; font-weight: bold">my</span> <span style="color: #996633">%hash</span> <span style="color: #333333">=</span> <span style="color: #996633">%</span>{ from_json (<span style="color: #996633">$translations</span>, {}) };
+
+<span style="color: #888888">####</span>
+<span style="color: #888888">#easy print out</span>
+<span style="color: #888888">#print Dumper \%hash;</span>
+<span style="color: #888888">#or</span>
+<span style="color: #888888">####</span>
+
+<span style="color: #008800; font-weight: bold">print</span> <span style="background-color: #fff0f0">&quot;source = $hash{source}\n&quot;</span>;
+<span style="color: #008800; font-weight: bold">print</span> <span style="background-color: #fff0f0">&quot;translation = $hash{best_translation}\n&quot;</span>;
+<span style="color: #008800; font-weight: bold">print</span> <span style="background-color: #fff0f0">&quot;time = $hash{time}\n&quot;</span>;
+
+<span style="color: #008800; font-weight: bold">print</span> <span style="background-color: #fff0f0">&quot;n best:\n&quot;</span>;
+<span style="color: #008800; font-weight: bold">foreach</span> <span style="color: #008800; font-weight: bold">my</span> <span style="color: #996633">$n_trans</span> (<span style="color: #007020">sort</span> {<span style="color: #996633">$hash</span>{n_best}{<span style="color: #996633">$b</span>} <span style="color: #000000; background-color: #fff0ff">&lt;=&gt;</span> <span style="color: #996633">$hash</span>{n_best}{<span style="color: #996633">$a</span>}} <span style="color: #007020">keys</span> <span style="color: #996633">%</span>{<span style="color: #996633">$hash</span>{n_best}}) {
+   <span style="color: #008800; font-weight: bold">print</span> <span style="background-color: #fff0f0">&quot;\t$n_trans\t $hash{n_best}{$n_trans}\n&quot;</span>;
+}
+</pre></div>
+
+
+</p>
+
+
+<br><br>
+<p><b>Output</b></p>
+
+
+<!-- HTML generated using hilite.me --><div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #00688B">$VAR1</span> = {
+          <span style="color: #CD5555">&#39;n_best&#39;</span> =&gt; {
+                        <span style="color: #CD5555">&#39;Ní úsáidfidh breoslaí iontaise in Éirinn faoi dheireadh na haoise nua , de réir bheartas fuinnimh an Rialtais . &#39;</span> =&gt; <span style="color: #CD5555">&#39;-19.3819&#39;</span>,
+                        <span style="color: #CD5555">&#39;Ní úsáidfear nuair a dhóitear breoslaí iontaise in Éirinn faoi dheireadh an chéid nua , de réir bheartas fuinnimh an Rialtais . &#39;</span> =&gt; <span style="color: #CD5555">&#39;-19.2486&#39;</span>,
+                        <span style="color: #CD5555">&#39;Ní úsáidfidh breoslaí iontaise in Éirinn faoi dheireadh an chéid nua , de réir bheartas fuinnimh an Rialtais . &#39;</span> =&gt; <span style="color: #CD5555">&#39;-19.188&#39;</span>,
+                        <span style="color: #CD5555">&#39;Ní úsáidfidh nuair a dhóitear breoslaí iontaise in Éirinn faoi dheireadh an chéid nua , de réir bheartas fuinnimh an Rialtais . &#39;</span> =&gt; <span style="color: #CD5555">&#39;-19.411&#39;</span>,
+                        <span style="color: #CD5555">&#39;Ní úsáidfear breoslaí iontaise in Éirinn faoi dheireadh an chéid nua , de réir bheartas fuinnimh an Rialtais . &#39;</span> =&gt; <span style="color: #CD5555">&#39;-19.2662&#39;</span>,
+                        <span style="color: #CD5555">&#39;Ní úsáidfear breoslaí iontaise in Éirinn faoi dheireadh na haoise nua , de réir bheartas fuinnimh an Rialtais . &#39;</span> =&gt; <span style="color: #CD5555">&#39;-19.4601&#39;</span>,
+                        <span style="color: #CD5555">&#39;Ní úsáidfear nuair a dhóitear breoslaí iontaise in Éirinn faoi dheireadh na haoise nua , de réir bheartas fuinnimh an Rialtais . &#39;</span> =&gt; <span style="color: #CD5555">&#39;-19.4424&#39;</span>,
+                        <span style="color: #CD5555">&#39;Ní úsáidfidh sé gur breoslaí iontaise in Éirinn faoi dheireadh an chéid nua , de réir bheartas fuinnimh an Rialtais . &#39;</span> =&gt; <span style="color: #CD5555">&#39;-19.391&#39;</span>,
+                        <span style="color: #CD5555">&#39;Gan Úsáid breoslaí iontaise a bheidh in Éirinn faoi dheireadh an chéid nua , de réir bheartas fuinnimh an Rialtais . &#39;</span> =&gt; <span style="color: #CD5555">&#39;-19.5291&#39;</span>,
+                        <span style="color: #CD5555">&#39;Ní úsáidfidh sé nuair a dhóitear breoslaí iontaise in Éirinn faoi dheireadh an chéid nua , de réir bheartas fuinnimh an Rialtais . &#39;</span> =&gt; <span style="color: #CD5555">&#39;-19.4587&#39;</span>
+                      },
+          <span style="color: #CD5555">&#39;source&#39;</span> =&gt; <span style="color: #CD5555">&#39;Ireland will use no fossil fuels by the end of the century, according to a new Government energy policy paper.&#39;</span>,
+          <span style="color: #CD5555">&#39;time&#39;</span> =&gt; <span style="color: #CD5555">&#39; 2 wallclock secs ( 0.02 usr  0.01 sys +  2.58 cusr  0.15 csys =  2.76 CPU)&#39;</span>,
+          <span style="color: #CD5555">&#39;best_translation&#39;</span> =&gt; <span style="color: #CD5555">&#39;Ní úsáidfidh breoslaí iontaise in Éirinn faoi dheireadh an chéid nua, de réir bheartas fuinnimh an Rialtais.&#39;</span>
+        };
+</pre></div>
+
+<br
+
+</ul>
+
+</body>
+</html>

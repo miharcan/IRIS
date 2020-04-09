@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>IRIS | Córas Aistriúcháin Béarla-Gaeilge</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="iris.css" />
+
+		<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<style>
+		#loadingholder{ width: 100%; height: 100%; opacity: .6; background-color: #000; top:0; left:0; position: absolute; display: none }
+		.loading{ width:7em; margin: auto }
+		.loading div{ width:7em;height:1em;margin:3em auto;padding:3em 0;position:relative;border-radius:50%;border:2px solid #ccc;border-top:2px solid transparent;border-bottom:2px solid transparent;-webkit-animation:rotate 1s ease infinite;-moz-animation:rotate 1s ease infinite;-o-animation:rotate 1s ease infinite;animation:rotate 1s ease infinite}
+		.loading:before{content:"Translating";position:absolute;color:#ccc;font:0.9em sans-serif;width:7.8em;line-height:7.2em;text-align:center;-webkit-animation:wink 1.4s ease infinite}
+		@-webkit-keyframes rotate {0%{-webkit-transform:rotate(360deg)}}
+		@-moz-keyframes rotate {0%{-moz-transform:rotate(360deg)}}
+		@-o-keyframes rotate {0%{-o-transform:rotate(360deg)}}
+		@keyframes rotate {0%{transform:rotate(360deg)} }
+		@-webkit-keyframes wink{50%{opacity:0}}
+		@-moz-keyframes wink{50%{opacity:0}}
+		@-o-keyframes wink{50%{opacity:0}}
+		@keyframes wink{50%{opacity:0}}
+		</style>
+		<SCRIPT LANGUAGE='JAVASCRIPT' TYPE='TEXT/JAVASCRIPT'>
+
+		var popupWindow=null;
+		function popup(mypage,myname,w,h,pos,infocus){
+
+		if (pos == 'random')
+		{LeftPosition=(screen.width)?Math.floor(Math.random()*(screen.width-w)):100;TopPosition=(screen.height)?Math.floor(Math.random()*((screen.height-h)-75)):100;}
+		else
+		{LeftPosition=(screen.width)?(screen.width-w)/2:100;TopPosition=(screen.height)?(screen.height-h)/2:100;}
+		settings='width='+ w + ',height='+ h + ',top=' + TopPosition + ',left=' + LeftPosition + ',scrollbars=yes,location=no,directories=no,status=no,menubar=no,toolbar=no,resizable=no';popupWindow=window.open('',myname,settings);
+		if(infocus=='front'){popupWindow.focus();popupWindow.location=mypage;}
+		if(infocus=='back'){popupWindow.blur();popupWindow.location=mypage;popupWindow.blur();}
+
+		}
+
+		</script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-60372736-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+
+	</head>
+	<body>
+		<header>
+		
+			<div class="container">
+				
+				<div class="alighleft">
+					<span class="logo"><span class="green">IRIS</span></span>
+					Córas Aistriúcháin Béarla-Gaeilge
+				</div>
+
+				<ul class="alighright">
+					<li><a href="./inneacs.html"><i class="fa fa-home"></i> Baile</a></li>
+					<li><a href="http://server1.nlp.insight-centre.org/iris/"><i class="fa fa-language"></i> Béarla</a></li>
+					<li><a href="./faoi.html"><i class="fa fa-comment"></i> Maidir le</a></li>
+					<li><a href="./foireann.html"><i class="fa fa-users"></i> Foireann</a></li>
+					<li><a href="./docker.html"><i class="fa fa-cogs"></i> Docker</a></li>
+					<li>
+						<a href="#"><i class="fa fa-tags"></i> Tionscadail Eile</a>
+						<ul>
+							<li><a href="http://server1.nlp.insight-centre.org/iris/" target="_top">IRIS</a></li>
+							<li><a href="http://server1.nlp.insight-centre.org/otto/" target="_top">OTTO</a></li>
+							<li><a href="http://server1.nlp.insight-centre.org/asistent/" target="_top">ASISTENT</a></li>
+							<li><a href="http://server1.nlp.insight-centre.org/tetra/" target="_top">TeTra</a></li>
+						</ul>
+					</li>
+				</ul>
+				<div class="clear"></div>
+				
+			</div>
+
+		</header>
+		
+		<div class="container">
+			<div class="contents">
+				<p>Cuir an téacs le haistriú, Béarla nó Gaeilge, sa bhosca nó bain úsáid as na samplaí:</p>
+
+
+				<form action="cgi-bin/iris.cgi" method="POST" accept-charset="utf-8" enctype="multipart/form-data" onsubmit="document.getElementById('loadingholder').style.display = 'block'">
+					<div class="buttoncontainer">
+						<input class="button" type="button" style="height:30px; width:175px" name="Text 2" value="Abairt i nGaeilge" onclick="this.form.Text.value='Ní thiocfaidh gníomh tarmligthe a ghlactar de bhun Airteagal 8 i bhfeidhm ach amháin mura mbeidh aon agóid curtha in iúl ag Parlaimint na hEorpa nó ag an gComhairle laistigh de thréimhse dhá mhí tar éis fógra faoin ngníomh sin a thabhairt do Pharlaimint na hEorpa agus don Chomhairle nó más rud é, roimh dheireadh na tréimhse sin, go mbeidh Parlaimint na hEorpa agus an Chomhairle araon tar éis a chur in iúl don Choimisiún nach ndéanfaidh siad agóid.'">
+					</div>
+					<div class="buttoncontainer">
+						<input class="button" type="button" name="Text 1" style="height:30px; width:175px"  value="&nbsp;&nbsp;Abairt i mBéarla" onclick="this.form.Text.value='A delegated act adopted pursuant to Article 8 shall enter into force only if no objection has been expressed either by the European Parliament or the Council within a period of two months of notification of that act to the European Parliament and the Council or if, before the expiry of that period, the European Parliament and the Council have both informed the Commission that they will not object.'">
+					</div>
+
+					<div class="clear"></div>
+
+					<textarea name="Text" ></textarea>
+<!--					<input type="hidden" name="dic" value="<?php echo time(); ?>">-->
+
+					<input type="hidden" name="lang" value="irish">
+
+					<div class="clear"></div>
+
+
+					<table width="100%" border="0">
+					<tr>
+						<td><div style="text-align:left"><input class="button" type="submit" name="start" value="Aistrigh" style="width: 175px;"></div></td>
+						<td><div style="text-align: right">This service is brought to you by<br> <a href="http://nuig.insight-centre.org/unlp/" target="_blank">http://nuig.insight-centre.org/unlp/</a></div></td>
+					</tr>
+					</table>
+
+				</form>
+
+			</div>
+
+			<div class="sidebar" style="text-align:justify;line-height:17px" >
+				Forbraíodh an Córas Aistriúcháin IRIS chun téacs i mBéarla a aistriú go Gaeilge agus a mhalairt. <!--Ina theannta sin, is féidir téacs aonteangach i mBéarla nó i nGaeilge, nó téacs comhthreomhar a uaslódáil ionas gur féidir na samhlacha aistriúcháin a uasdátú. Chun tacar sonraí nua i mBéarla nó i nGaeilge a uaslódáil, <a href="#" onclick="window.open('upload_ga.html', 'newwindow', 'width=500, height=400'); return false;">cliceáil anseo</a>. -->
+
+
+				<br><br>
+								
+				<table border="0" width="105%">
+				<tr><td colspan="2" style='text-align:left'>Select translation table option/approach:</td></tr>
+				<tr>
+				<td colspan="3">
+				<table width="80%">
+				<tr>
+				<td style='text-align:left'><label><input type="radio" name="method" value="pbsmt"> Phrase-based SMT</label></td>
+				<td style='text-align:left'><label><input checked  type="radio" name="method" value="nmt"> Neural MT</label></td>	
+				</tr>
+				</table>
+				</table>
+				
+				<br/>Statistics about added monolingual/parallel data:
+
+				<div style="text-align: center"><a title="Statistics about added monolingual/parallel data" href="./en_ga_descr.html" alt="Statistics" target="_blank">
+					<img src="en_ga_progress.png" width="270"  vspace="14">
+				</a></div>
+
+
+				<div style="text-align: center"><a title="Statistics about added monolingual/parallel data" href="ga_en_descr.html" target="_blank">
+					<img src="ga_en_progress.png" width="270" vspace="5">
+				</a></div>
+			</div>
+
+			<div class="clear"></div>
+		</div>
+
+		<footer>
+			<div class="container">
+				<a href="http://www.insight-centre.org/" target="_blank"><img src="insight_logo_transparent.png" /></a>
+				<a href="http://www.nuigalway.ie/index.html" target="_blank"><img src="nuigalway.png" /></a>
+				<a href="http://www.sfi.ie/" target="_blank"><img src="sfi.png" /></a>
+
+				<br />
+				<span style="font-size: smaller;">Tá an acmhainn seo arna maoiniú ó Uimh. Dheontais SFI/12/RC/2289 - INSIGHT - Ollscoil na hÉireann, Gaillimh</span>
+
+				<br />
+			</div>
+		</footer>
+<!--		<br clear="all" /><br />-->
+		<div class="loading-mask" id="loadingholder">
+			<div class="loading"><div>
+		</div>
+
+	</body>
+</html>

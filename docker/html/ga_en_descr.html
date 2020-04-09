@@ -1,0 +1,474 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html><head><title></title></head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<body>
+<table width="4000px" border="1">
+<tr>
+<th>traning <br> number</th>
+<th>timestamp</th>
+<th>filename</th>
+<th>data type</th>
+<th>BLEU, <a title="static testset (cf. Home->About)"><font color="#0000FF">testset 1</font></a><br> (tuned) </th>
+<th>METEOR, <a title="static testset (cf. Home->About)"><font color="#0000FF">testset 1</font></a><br> (tuned) </th>
+<th>chrF, <a title="static testset (cf. Home->About)"><font color="#0000FF">testset 1</font></a><br> (tuned) </th>
+<th>BLEU, <a title="static testset (cf. Home->About)"><font color="#0000FF">testset 1</font></a><br> (tuned/filtered) </th>
+<th>METEOR, <a title="static testset (cf. Home->About)"><font color="#0000FF">testset 1</font></a><br> (tuned/filtered) </th>
+<th>chrF, <a title="static testset (cf. Home->About)"><font color="#0000FF">testset 1</font></a><br> (tuned/filtered) </th>
+<th>BLEU, <a title="resource testset (25% of new data, max. 3K lines)"><font color="#0000FF">testset 2</font></a><br> (tuned) </th>
+<th>METEOR, <a title="resource testset (25% of new data, max. 3K lines)"><font color="#0000FF">testset 2</font></a><br> (tuned) </th>
+<th>chrF, <a title="resource testset (25% of new data, max. 3K lines)"><font color="#0000FF">testset 2</font></a><br> (tuned) </th>
+<th>BLEU, <a title="resource testset (25% of new data, max. 3K lines)"><font color="#0000FF">testset 2</font></a><br> (tuned/filtered) </th>
+<th>METEOR, <a title="resource testset (25% of new data, max. 3K lines)"><font color="#0000FF">testset 2</font></a><br> (tuned/filtered) </th>
+<th>chrF, <a title="resource testset (25% of new data, max. 3K lines)"><font color="#0000FF">testset 2</font></a><br> (tuned/filtered) </th>
+<th>new training data <br> (# of lines)</th>
+<th>new training data <br> (# of source words)</th>
+<th>new training data <br> (# of target words)</th>
+<th>training data, all <br> (# of lines)</th>
+<th>training data, all <br> (# of source words)</th>
+<th>training data, all <br> (# of target words)</th>
+<th>language model <br> (# of lines)</th>
+<th>language model <br> (# of words)</th>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>0</td>
+<td style='text-align:center;vertical-align:middle'>10.08.2016</td>
+<td style='text-align:center;vertical-align:middle'>DGT.en-ga</td>
+<td style='text-align:center;vertical-align:middle'>parallel</td>
+<td style='text-align:center;vertical-align:middle'>40.92</td>
+<td style='text-align:center;vertical-align:middle'>34.39</td>
+<td style='text-align:center;vertical-align:middle'>56.71</td>
+<td style='text-align:center;vertical-align:middle'>40.77</td>
+<td style='text-align:center;vertical-align:middle'>34.39</td>
+<td style='text-align:center;vertical-align:middle'>56.67</td>
+<td style='text-align:center;vertical-align:middle'>56.16</td>
+<td style='text-align:center;vertical-align:middle'>45.23</td>
+<td style='text-align:center;vertical-align:middle'>75.94</td>
+<td style='text-align:center;vertical-align:middle'>55.66</td>
+<td style='text-align:center;vertical-align:middle'>45.12</td>
+<td style='text-align:center;vertical-align:middle'>75.68</td>
+<td style='text-align:center;vertical-align:middle'>31,597</td>
+<td style='text-align:center;vertical-align:middle'>835,845</td>
+<td style='text-align:center;vertical-align:middle'>759,857</td>
+<td style='text-align:center;vertical-align:middle'>30,219</td>
+<td style='text-align:center;vertical-align:middle'>822,895</td>
+<td style='text-align:center;vertical-align:middle'>747,839</td>
+<td style='text-align:center;vertical-align:middle'>31,597</td>
+<td style='text-align:center;vertical-align:middle'>759,857</td>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>1</td>
+<td style='text-align:center;vertical-align:middle'>11.08.2016</td>
+<td style='text-align:center;vertical-align:middle'>EUbookshop.en-ga</td>
+<td style='text-align:center;vertical-align:middle'>parallel</td>
+<td style='text-align:center;vertical-align:middle'>60.45</td>
+<td style='text-align:center;vertical-align:middle'>42.31</td>
+<td style='text-align:center;vertical-align:middle'>67.82</td>
+<td style='text-align:center;vertical-align:middle'>59.48</td>
+<td style='text-align:center;vertical-align:middle'>41.61</td>
+<td style='text-align:center;vertical-align:middle'>67.04</td>
+<td style='text-align:center;vertical-align:middle'>57.53</td>
+<td style='text-align:center;vertical-align:middle'>41.35</td>
+<td style='text-align:center;vertical-align:middle'>71.98</td>
+<td style='text-align:center;vertical-align:middle'>56.12</td>
+<td style='text-align:center;vertical-align:middle'>40.52</td>
+<td style='text-align:center;vertical-align:middle'>70.86</td>
+<td style='text-align:center;vertical-align:middle'>107,240</td>
+<td style='text-align:center;vertical-align:middle'>2,509,647</td>
+<td style='text-align:center;vertical-align:middle'>2,417,594</td>
+<td style='text-align:center;vertical-align:middle'>120,057</td>
+<td style='text-align:center;vertical-align:middle'>3,107,423</td>
+<td style='text-align:center;vertical-align:middle'>2,933,568</td>
+<td style='text-align:center;vertical-align:middle'>150,620</td>
+<td style='text-align:center;vertical-align:middle'>3,512,012</td>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>2</td>
+<td style='text-align:center;vertical-align:middle'>12.08.2016</td>
+<td style='text-align:center;vertical-align:middle'>EUconst.en-ga</td>
+<td style='text-align:center;vertical-align:middle'>parallel</td>
+<td style='text-align:center;vertical-align:middle'>59.49</td>
+<td style='text-align:center;vertical-align:middle'>42.50</td>
+<td style='text-align:center;vertical-align:middle'>68.31</td>
+<td style='text-align:center;vertical-align:middle'>59.08</td>
+<td style='text-align:center;vertical-align:middle'>42.42</td>
+<td style='text-align:center;vertical-align:middle'>68.07</td>
+<td style='text-align:center;vertical-align:middle'>83.82</td>
+<td style='text-align:center;vertical-align:middle'>57.61</td>
+<td style='text-align:center;vertical-align:middle'>89.88</td>
+<td style='text-align:center;vertical-align:middle'>81.97</td>
+<td style='text-align:center;vertical-align:middle'>56.32</td>
+<td style='text-align:center;vertical-align:middle'>88.69</td>
+<td style='text-align:center;vertical-align:middle'>5,193</td>
+<td style='text-align:center;vertical-align:middle'>67,356</td>
+<td style='text-align:center;vertical-align:middle'>66,862</td>
+<td style='text-align:center;vertical-align:middle'>126,645</td>
+<td style='text-align:center;vertical-align:middle'>3,268,077</td>
+<td style='text-align:center;vertical-align:middle'>3,085,708</td>
+<td style='text-align:center;vertical-align:middle'>177,849</td>
+<td style='text-align:center;vertical-align:middle'>3,993,847</td>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>3</td>
+<td style='text-align:center;vertical-align:middle'>13.08.2016</td>
+<td style='text-align:center;vertical-align:middle'>focal_en_ga_concepts</td>
+<td style='text-align:center;vertical-align:middle'>parallel</td>
+<td style='text-align:center;vertical-align:middle'>60.19</td>
+<td style='text-align:center;vertical-align:middle'>42.65</td>
+<td style='text-align:center;vertical-align:middle'>68.52</td>
+<td style='text-align:center;vertical-align:middle'>59.25</td>
+<td style='text-align:center;vertical-align:middle'>42.02</td>
+<td style='text-align:center;vertical-align:middle'>67.72</td>
+<td style='text-align:center;vertical-align:middle'>22.68</td>
+<td style='text-align:center;vertical-align:middle'>27.50</td>
+<td style='text-align:center;vertical-align:middle'>51.30</td>
+<td style='text-align:center;vertical-align:middle'>21.97</td>
+<td style='text-align:center;vertical-align:middle'>27.36</td>
+<td style='text-align:center;vertical-align:middle'>50.91</td>
+<td style='text-align:center;vertical-align:middle'>207,363</td>
+<td style='text-align:center;vertical-align:middle'>428,318</td>
+<td style='text-align:center;vertical-align:middle'>403,557</td>
+<td style='text-align:center;vertical-align:middle'>329,975</td>
+<td style='text-align:center;vertical-align:middle'>3,726,031</td>
+<td style='text-align:center;vertical-align:middle'>3,519,662</td>
+<td style='text-align:center;vertical-align:middle'>389,414</td>
+<td style='text-align:center;vertical-align:middle'>4,481,073</td>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>4</td>
+<td style='text-align:center;vertical-align:middle'>15.08.2016</td>
+<td style='text-align:center;vertical-align:middle'>GNOME.en-ga</td>
+<td style='text-align:center;vertical-align:middle'>parallel</td>
+<td style='text-align:center;vertical-align:middle'>62.13</td>
+<td style='text-align:center;vertical-align:middle'>43.56</td>
+<td style='text-align:center;vertical-align:middle'>68.98</td>
+<td style='text-align:center;vertical-align:middle'>60.79</td>
+<td style='text-align:center;vertical-align:middle'>42.76</td>
+<td style='text-align:center;vertical-align:middle'>67.90</td>
+<td style='text-align:center;vertical-align:middle'>33.08</td>
+<td style='text-align:center;vertical-align:middle'>32.52</td>
+<td style='text-align:center;vertical-align:middle'>53.74</td>
+<td style='text-align:center;vertical-align:middle'>32.68</td>
+<td style='text-align:center;vertical-align:middle'>31.93</td>
+<td style='text-align:center;vertical-align:middle'>52.46</td>
+<td style='text-align:center;vertical-align:middle'>51,010</td>
+<td style='text-align:center;vertical-align:middle'>201,008</td>
+<td style='text-align:center;vertical-align:middle'>197,221</td>
+<td style='text-align:center;vertical-align:middle'>346,958</td>
+<td style='text-align:center;vertical-align:middle'>3,803,210</td>
+<td style='text-align:center;vertical-align:middle'>3,595,193</td>
+<td style='text-align:center;vertical-align:middle'>448,101</td>
+<td style='text-align:center;vertical-align:middle'>4,693,936</td>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>5</td>
+<td style='text-align:center;vertical-align:middle'>17.08.2016</td>
+<td style='text-align:center;vertical-align:middle'>irish-legislation-2014-10-08</td>
+<td style='text-align:center;vertical-align:middle'>parallel</td>
+<td style='text-align:center;vertical-align:middle'>63.69</td>
+<td style='text-align:center;vertical-align:middle'>44.65</td>
+<td style='text-align:center;vertical-align:middle'>70.23</td>
+<td style='text-align:center;vertical-align:middle'>63.11</td>
+<td style='text-align:center;vertical-align:middle'>44.27</td>
+<td style='text-align:center;vertical-align:middle'>69.63</td>
+<td style='text-align:center;vertical-align:middle'>69.40</td>
+<td style='text-align:center;vertical-align:middle'>51.11</td>
+<td style='text-align:center;vertical-align:middle'>81.28</td>
+<td style='text-align:center;vertical-align:middle'>68.69</td>
+<td style='text-align:center;vertical-align:middle'>50.60</td>
+<td style='text-align:center;vertical-align:middle'>80.44</td>
+<td style='text-align:center;vertical-align:middle'>127,654</td>
+<td style='text-align:center;vertical-align:middle'>2,691,208</td>
+<td style='text-align:center;vertical-align:middle'>2,594,987</td>
+<td style='text-align:center;vertical-align:middle'>456,864</td>
+<td style='text-align:center;vertical-align:middle'>6,335,564</td>
+<td style='text-align:center;vertical-align:middle'>6,037,312</td>
+<td style='text-align:center;vertical-align:middle'>605,782</td>
+<td style='text-align:center;vertical-align:middle'>7,404,987</td>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>6</td>
+<td style='text-align:center;vertical-align:middle'>18.08.2016</td>
+<td style='text-align:center;vertical-align:middle'>KDE4.en-ga</td>
+<td style='text-align:center;vertical-align:middle'>parallel</td>
+<td style='text-align:center;vertical-align:middle'>63.09</td>
+<td style='text-align:center;vertical-align:middle'>44.20</td>
+<td style='text-align:center;vertical-align:middle'>69.31</td>
+<td style='text-align:center;vertical-align:middle'>62.41</td>
+<td style='text-align:center;vertical-align:middle'>44.09</td>
+<td style='text-align:center;vertical-align:middle'>69.10</td>
+<td style='text-align:center;vertical-align:middle'>32.08</td>
+<td style='text-align:center;vertical-align:middle'>31.08</td>
+<td style='text-align:center;vertical-align:middle'>50.22</td>
+<td style='text-align:center;vertical-align:middle'>31.33</td>
+<td style='text-align:center;vertical-align:middle'>31.26</td>
+<td style='text-align:center;vertical-align:middle'>50.37</td>
+<td style='text-align:center;vertical-align:middle'>101,738</td>
+<td style='text-align:center;vertical-align:middle'>478,371</td>
+<td style='text-align:center;vertical-align:middle'>414,808</td>
+<td style='text-align:center;vertical-align:middle'>547,441</td>
+<td style='text-align:center;vertical-align:middle'>6,871,121</td>
+<td style='text-align:center;vertical-align:middle'>6,508,780</td>
+<td style='text-align:center;vertical-align:middle'>722,530</td>
+<td style='text-align:center;vertical-align:middle'>8,651,730</td>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>7</td>
+<td style='text-align:center;vertical-align:middle'>19.08.2016</td>
+<td style='text-align:center;vertical-align:middle'>news.2007.shuffled</td>
+<td style='text-align:center;vertical-align:middle'>monolingual</td>
+<td style='text-align:center;vertical-align:middle'>62.59</td>
+<td style='text-align:center;vertical-align:middle'>44.02</td>
+<td style='text-align:center;vertical-align:middle'>69.13</td>
+<td style='text-align:center;vertical-align:middle'>61.56</td>
+<td style='text-align:center;vertical-align:middle'>43.66</td>
+<td style='text-align:center;vertical-align:middle'>68.59</td>
+<td style='text-align:center;vertical-align:middle'>48.60</td>
+<td style='text-align:center;vertical-align:middle'>36.33</td>
+<td style='text-align:center;vertical-align:middle'>59.19</td>
+<td style='text-align:center;vertical-align:middle'>47.68</td>
+<td style='text-align:center;vertical-align:middle'>36.30</td>
+<td style='text-align:center;vertical-align:middle'>59.27</td>
+<td style='text-align:center;vertical-align:middle'>3,782,548</td>
+<td style='text-align:center;vertical-align:middle'>0</td>
+<td style='text-align:center;vertical-align:middle'>89,528,508</td>
+<td style='text-align:center;vertical-align:middle'>547,441</td>
+<td style='text-align:center;vertical-align:middle'>6,871,121</td>
+<td style='text-align:center;vertical-align:middle'>6,508,780</td>
+<td style='text-align:center;vertical-align:middle'>4,520,555</td>
+<td style='text-align:center;vertical-align:middle'>98,254,048</td>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>8</td>
+<td style='text-align:center;vertical-align:middle'>23.08.2016</td>
+<td style='text-align:center;vertical-align:middle'>Ubuntu.en-ga</td>
+<td style='text-align:center;vertical-align:middle'>parallel</td>
+<td style='text-align:center;vertical-align:middle'>62.71</td>
+<td style='text-align:center;vertical-align:middle'>44.25</td>
+<td style='text-align:center;vertical-align:middle'>69.48</td>
+<td style='text-align:center;vertical-align:middle'>61.59</td>
+<td style='text-align:center;vertical-align:middle'>43.60</td>
+<td style='text-align:center;vertical-align:middle'>68.65</td>
+<td style='text-align:center;vertical-align:middle'>33.96</td>
+<td style='text-align:center;vertical-align:middle'>41.40</td>
+<td style='text-align:center;vertical-align:middle'>57.45</td>
+<td style='text-align:center;vertical-align:middle'>33.54</td>
+<td style='text-align:center;vertical-align:middle'>41.28</td>
+<td style='text-align:center;vertical-align:middle'>56.80</td>
+<td style='text-align:center;vertical-align:middle'>191</td>
+<td style='text-align:center;vertical-align:middle'>1,003</td>
+<td style='text-align:center;vertical-align:middle'>929</td>
+<td style='text-align:center;vertical-align:middle'>549,224</td>
+<td style='text-align:center;vertical-align:middle'>6,876,514</td>
+<td style='text-align:center;vertical-align:middle'>6,505,628</td>
+<td style='text-align:center;vertical-align:middle'>4,520,746</td>
+<td style='text-align:center;vertical-align:middle'>98,254,977</td>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>9</td>
+<td style='text-align:center;vertical-align:middle'>26.08.2016</td>
+<td style='text-align:center;vertical-align:middle'>wikipedia_titles_enga</td>
+<td style='text-align:center;vertical-align:middle'>parallel</td>
+<td style='text-align:center;vertical-align:middle'>62.77</td>
+<td style='text-align:center;vertical-align:middle'>44.14</td>
+<td style='text-align:center;vertical-align:middle'>69.22</td>
+<td style='text-align:center;vertical-align:middle'>61.65</td>
+<td style='text-align:center;vertical-align:middle'>43.61</td>
+<td style='text-align:center;vertical-align:middle'>68.44</td>
+<td style='text-align:center;vertical-align:middle'>18.31</td>
+<td style='text-align:center;vertical-align:middle'>33.07</td>
+<td style='text-align:center;vertical-align:middle'>51.51</td>
+<td style='text-align:center;vertical-align:middle'>18.30</td>
+<td style='text-align:center;vertical-align:middle'>32.76</td>
+<td style='text-align:center;vertical-align:middle'>51.44</td>
+<td style='text-align:center;vertical-align:middle'>13,921</td>
+<td style='text-align:center;vertical-align:middle'>28,734</td>
+<td style='text-align:center;vertical-align:middle'>27,477</td>
+<td style='text-align:center;vertical-align:middle'>564,189</td>
+<td style='text-align:center;vertical-align:middle'>6,924,111</td>
+<td style='text-align:center;vertical-align:middle'>6,552,026</td>
+<td style='text-align:center;vertical-align:middle'>4,534,865</td>
+<td style='text-align:center;vertical-align:middle'>98,283,750</td>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>10</td>
+<td style='text-align:center;vertical-align:middle'>28.08.2016</td>
+<td style='text-align:center;vertical-align:middle'>irish_sent_bank</td>
+<td style='text-align:center;vertical-align:middle'>parallel</td>
+<td style='text-align:center;vertical-align:middle'>63.31</td>
+<td style='text-align:center;vertical-align:middle'>45.16</td>
+<td style='text-align:center;vertical-align:middle'>70.65</td>
+<td style='text-align:center;vertical-align:middle'>62.42</td>
+<td style='text-align:center;vertical-align:middle'>44.62</td>
+<td style='text-align:center;vertical-align:middle'>69.94</td>
+<td style='text-align:center;vertical-align:middle'>29.96</td>
+<td style='text-align:center;vertical-align:middle'>31.87</td>
+<td style='text-align:center;vertical-align:middle'>50.16</td>
+<td style='text-align:center;vertical-align:middle'>30.39</td>
+<td style='text-align:center;vertical-align:middle'>31.91</td>
+<td style='text-align:center;vertical-align:middle'>50.21</td>
+<td style='text-align:center;vertical-align:middle'>2,265</td>
+<td style='text-align:center;vertical-align:middle'>18,253</td>
+<td style='text-align:center;vertical-align:middle'>17,975</td>
+<td style='text-align:center;vertical-align:middle'>570,053</td>
+<td style='text-align:center;vertical-align:middle'>6,951,077</td>
+<td style='text-align:center;vertical-align:middle'>6,576,982</td>
+<td style='text-align:center;vertical-align:middle'>4,541,130</td>
+<td style='text-align:center;vertical-align:middle'>98,310,443</td>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>11</td>
+<td style='text-align:center;vertical-align:middle'>30.08.2016</td>
+<td style='text-align:center;vertical-align:middle'>food_beverages</td>
+<td style='text-align:center;vertical-align:middle'>parallel</td>
+<td style='text-align:center;vertical-align:middle'>62.15</td>
+<td style='text-align:center;vertical-align:middle'>43.82</td>
+<td style='text-align:center;vertical-align:middle'>68.70</td>
+<td style='text-align:center;vertical-align:middle'>61.50</td>
+<td style='text-align:center;vertical-align:middle'>43.52</td>
+<td style='text-align:center;vertical-align:middle'>68.23</td>
+<td style='text-align:center;vertical-align:middle'>6.71</td>
+<td style='text-align:center;vertical-align:middle'>40.45</td>
+<td style='text-align:center;vertical-align:middle'>50.50</td>
+<td style='text-align:center;vertical-align:middle'>6.95</td>
+<td style='text-align:center;vertical-align:middle'>40.51</td>
+<td style='text-align:center;vertical-align:middle'>50.70</td>
+<td style='text-align:center;vertical-align:middle'>353</td>
+<td style='text-align:center;vertical-align:middle'>700</td>
+<td style='text-align:center;vertical-align:middle'>698</td>
+<td style='text-align:center;vertical-align:middle'>570,897</td>
+<td style='text-align:center;vertical-align:middle'>6,955,140</td>
+<td style='text-align:center;vertical-align:middle'>6,582,262</td>
+<td style='text-align:center;vertical-align:middle'>4,543,663</td>
+<td style='text-align:center;vertical-align:middle'>98,329,101</td>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>13</td>
+<td style='text-align:center;vertical-align:middle'>03.09.2016</td>
+<td style='text-align:center;vertical-align:middle'>Cuimhne_na_dTeacsleabhar</td>
+<td style='text-align:center;vertical-align:middle'>parallel</td>
+<td style='text-align:center;vertical-align:middle'>64.11</td>
+<td style='text-align:center;vertical-align:middle'>45.15</td>
+<td style='text-align:center;vertical-align:middle'>70.44</td>
+<td style='text-align:center;vertical-align:middle'>63.43</td>
+<td style='text-align:center;vertical-align:middle'>44.98</td>
+<td style='text-align:center;vertical-align:middle'>70.18</td>
+<td style='text-align:center;vertical-align:middle'>41.81</td>
+<td style='text-align:center;vertical-align:middle'>39.53</td>
+<td style='text-align:center;vertical-align:middle'>65.31</td>
+<td style='text-align:center;vertical-align:middle'>41.41</td>
+<td style='text-align:center;vertical-align:middle'>39.59</td>
+<td style='text-align:center;vertical-align:middle'>65.46</td>
+<td style='text-align:center;vertical-align:middle'>369,478</td>
+<td style='text-align:center;vertical-align:middle'>6,375,399</td>
+<td style='text-align:center;vertical-align:middle'>5,803,309</td>
+<td style='text-align:center;vertical-align:middle'>924,659</td>
+<td style='text-align:center;vertical-align:middle'>13,117,165</td>
+<td style='text-align:center;vertical-align:middle'>12,190,560</td>
+<td style='text-align:center;vertical-align:middle'>4,913,538</td>
+<td style='text-align:center;vertical-align:middle'>104,133,196</td>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>14</td>
+<td style='text-align:center;vertical-align:middle'>06.09.2016</td>
+<td style='text-align:center;vertical-align:middle'>apertium_en_ga</td>
+<td style='text-align:center;vertical-align:middle'>parallel</td>
+<td style='text-align:center;vertical-align:middle'>61.95</td>
+<td style='text-align:center;vertical-align:middle'>43.98</td>
+<td style='text-align:center;vertical-align:middle'>69.23</td>
+<td style='text-align:center;vertical-align:middle'>61.05</td>
+<td style='text-align:center;vertical-align:middle'>43.63</td>
+<td style='text-align:center;vertical-align:middle'>68.61</td>
+<td style='text-align:center;vertical-align:middle'>0.00</td>
+<td style='text-align:center;vertical-align:middle'>34.85</td>
+<td style='text-align:center;vertical-align:middle'>51.32</td>
+<td style='text-align:center;vertical-align:middle'>0.00</td>
+<td style='text-align:center;vertical-align:middle'>34.88</td>
+<td style='text-align:center;vertical-align:middle'>51.63</td>
+<td style='text-align:center;vertical-align:middle'>717</td>
+<td style='text-align:center;vertical-align:middle'>816</td>
+<td style='text-align:center;vertical-align:middle'>790</td>
+<td style='text-align:center;vertical-align:middle'>928,396</td>
+<td style='text-align:center;vertical-align:middle'>13,174,815</td>
+<td style='text-align:center;vertical-align:middle'>12,245,828</td>
+<td style='text-align:center;vertical-align:middle'>4,921,707</td>
+<td style='text-align:center;vertical-align:middle'>104,476,527</td>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>15</td>
+<td style='text-align:center;vertical-align:middle'>08.09.2016</td>
+<td style='text-align:center;vertical-align:middle'>dcep_corpus</td>
+<td style='text-align:center;vertical-align:middle'>parallel</td>
+<td style='text-align:center;vertical-align:middle'>63.89</td>
+<td style='text-align:center;vertical-align:middle'>45.07</td>
+<td style='text-align:center;vertical-align:middle'>70.27</td>
+<td style='text-align:center;vertical-align:middle'>62.88</td>
+<td style='text-align:center;vertical-align:middle'>44.65</td>
+<td style='text-align:center;vertical-align:middle'>69.84</td>
+<td style='text-align:center;vertical-align:middle'>77.09</td>
+<td style='text-align:center;vertical-align:middle'>54.00</td>
+<td style='text-align:center;vertical-align:middle'>86.91</td>
+<td style='text-align:center;vertical-align:middle'>75.47</td>
+<td style='text-align:center;vertical-align:middle'>53.11</td>
+<td style='text-align:center;vertical-align:middle'>86.13</td>
+<td style='text-align:center;vertical-align:middle'>16,570</td>
+<td style='text-align:center;vertical-align:middle'>414,117</td>
+<td style='text-align:center;vertical-align:middle'>375,812</td>
+<td style='text-align:center;vertical-align:middle'>932,309</td>
+<td style='text-align:center;vertical-align:middle'>13,254,590</td>
+<td style='text-align:center;vertical-align:middle'>12,319,360</td>
+<td style='text-align:center;vertical-align:middle'>4,939,129</td>
+<td style='text-align:center;vertical-align:middle'>104,853,269</td>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>16</td>
+<td style='text-align:center;vertical-align:middle'>12.09.2016</td>
+<td style='text-align:center;vertical-align:middle'>Tatoeba.en-ga</td>
+<td style='text-align:center;vertical-align:middle'>parallel</td>
+<td style='text-align:center;vertical-align:middle'>63.13</td>
+<td style='text-align:center;vertical-align:middle'>44.52</td>
+<td style='text-align:center;vertical-align:middle'>69.61</td>
+<td style='text-align:center;vertical-align:middle'>61.90</td>
+<td style='text-align:center;vertical-align:middle'>43.86</td>
+<td style='text-align:center;vertical-align:middle'>68.69</td>
+<td style='text-align:center;vertical-align:middle'>37.02</td>
+<td style='text-align:center;vertical-align:middle'>34.32</td>
+<td style='text-align:center;vertical-align:middle'>55.82</td>
+<td style='text-align:center;vertical-align:middle'>35.86</td>
+<td style='text-align:center;vertical-align:middle'>33.59</td>
+<td style='text-align:center;vertical-align:middle'>54.52</td>
+<td style='text-align:center;vertical-align:middle'>244</td>
+<td style='text-align:center;vertical-align:middle'>1,555</td>
+<td style='text-align:center;vertical-align:middle'>1,525</td>
+<td style='text-align:center;vertical-align:middle'>932,925</td>
+<td style='text-align:center;vertical-align:middle'>13,286,609</td>
+<td style='text-align:center;vertical-align:middle'>12,349,816</td>
+<td style='text-align:center;vertical-align:middle'>4,969,221</td>
+<td style='text-align:center;vertical-align:middle'>105,491,685</td>
+</tr>
+<tr>
+<td style='text-align:center;vertical-align:middle'>17</td>
+<td style='text-align:center;vertical-align:middle'>09.03.2017</td>
+<td style='text-align:center;vertical-align:middle'>tg4_subtitles</td>
+<td style='text-align:center;vertical-align:middle'>parallel</td>
+<td style='text-align:center;vertical-align:middle'>63.33</td>
+<td style='text-align:center;vertical-align:middle'>45.10</td>
+<td style='text-align:center;vertical-align:middle'>70.33</td>
+<td style='text-align:center;vertical-align:middle'>62.73</td>
+<td style='text-align:center;vertical-align:middle'>44.70</td>
+<td style='text-align:center;vertical-align:middle'>69.87</td>
+<td style='text-align:center;vertical-align:middle'>16.23</td>
+<td style='text-align:center;vertical-align:middle'>22.52</td>
+<td style='text-align:center;vertical-align:middle'>36.89</td>
+<td style='text-align:center;vertical-align:middle'>15.62</td>
+<td style='text-align:center;vertical-align:middle'>22.06</td>
+<td style='text-align:center;vertical-align:middle'>36.14</td>
+<td style='text-align:center;vertical-align:middle'>3,012</td>
+<td style='text-align:center;vertical-align:middle'>29,958</td>
+<td style='text-align:center;vertical-align:middle'>28,527</td>
+<td style='text-align:center;vertical-align:middle'>938,101</td>
+<td style='text-align:center;vertical-align:middle'>13,338,709</td>
+<td style='text-align:center;vertical-align:middle'>12,397,962</td>
+<td style='text-align:center;vertical-align:middle'>4,972,491</td>
+<td style='text-align:center;vertical-align:middle'>105,521,960</td>
+</tr>
+</table>
